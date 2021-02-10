@@ -9,7 +9,7 @@ from pyspark.sql.types import *
 
 class Insight:
     spark = SparkSession.builder.appName("Insight").getOrCreate()
-    file = 'file:///C:\\Users\\M1055990\\Desktop\\New folder\\Insights Machine\\MOPAR INC Ticket Data Analysis1.xlsx'
+    file = 'MOPAR INC Ticket Data Analysis1.xlsx'
 
     with pandas.ExcelFile(file) as xls:
         for sheet_name in xls.sheet_names:
@@ -43,7 +43,7 @@ class Insight:
 
     # xdf1_mm.show()
 
-    writer = pandas.ExcelWriter("C:\\Users\\M1055990\\Desktop\\Insights Machine\\Description.xlsx", engine='xlsxwriter')
+    writer = pandas.ExcelWriter("Description.xlsx", engine='xlsxwriter')
 
     xdf1_mm.toPandas().to_excel(writer, sheet_name='Configuration', index=False)
 
@@ -92,7 +92,7 @@ class Insight:
         fontsize='small'
     )
     plt.xlabel('Configuration Item')
-    plt.savefig("C:\\Users\\M1055990\\Desktop\\Graphs\\Configuration_count.png")
+    plt.savefig("Configuration_count.png")
     # ['Medium', 'Low'],
 
 
